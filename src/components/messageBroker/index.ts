@@ -1,6 +1,7 @@
 import { CommandTypes } from '../../constants';
 import { handleUpdateTransactions } from '../../messaging';
 import { MessageBrokerInterface } from '../../types';
+import { logger } from '../../helpers';
 
 export const MessageBroker: MessageBrokerInterface = {
   sendToCommandsQueue: (command: string, payload: any) => {
@@ -12,7 +13,7 @@ export const MessageBroker: MessageBrokerInterface = {
   },
 
   sendToEventBus: (event: string, payload: any) => {
-    console.log(`${event} sent to event bus with payload: `, payload)
+    logger.info(`${event} sent to event bus with payload: `, payload)
   }
 }
 

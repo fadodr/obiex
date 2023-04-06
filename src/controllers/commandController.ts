@@ -5,5 +5,8 @@ import { CommandTypes } from '../constants';
 export const commandController = async ({ input }: ControllerArgs) => {
   await sendCommand(CommandTypes.UPDATE_TRANSACTION, input);
 
-  return;
+  return {
+    message: "command sent succfully",
+    data: input
+  };
 };

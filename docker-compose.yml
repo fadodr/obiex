@@ -11,7 +11,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
       
-  node_api:
+  obiex_api:
     depends_on:
       - mysql
     build: .

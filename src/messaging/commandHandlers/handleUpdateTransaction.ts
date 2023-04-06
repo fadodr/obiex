@@ -9,7 +9,7 @@ export async function handleUpdateTransactions({
   walletAddress,
   currencyType,
 }: UpdateTxnArg) {
-  const log = `Request made by ${clientId} with wallet address ${walletAddress} for ${currencyType}`;
+  const log = `Request made by client ${clientId} with wallet address ${walletAddress} for ${currencyType}`;
   logger.info(log);
   //log the request to the relational database
   await UpdateTransactionRequest.create({ log });
