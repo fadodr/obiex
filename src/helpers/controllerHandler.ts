@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from 'express';
 import {
   ControllerHandlerFn,
   ControllerArgs,
-  ValidationSchema,
 } from '../types';
 import { AnyFunction } from 'sequelize/types/utils';
 
@@ -11,15 +10,11 @@ function parseControllerArgs(req: Request): ControllerArgs {
     input: req.body,
     params: req.params,
     query: req.query,
-    user: req.user,
     headers: req.headers,
   };
 }
 
-export const controllerHandler = (
-  controllerFn: AnyFunction,
-  schema?: ValidationSchema | undefined
-): ControllerHandlerFn => {
+export const controllerHandler = ( controllerFn: AnyFunction): ControllerHandlerFn => {
   return async (req: Request, res: Response, next: NextFunction) => {
     const controllerArgs = parseControllerArgs(req);
     try {

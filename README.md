@@ -4,7 +4,7 @@ To run the project, set up your env files for database and port configuration th
 
 ```javascript
 npm install
-npm run dev
+npm run infra
 ```
 
 This command will start the database and the server
