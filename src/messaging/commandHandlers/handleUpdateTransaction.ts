@@ -22,9 +22,9 @@ export async function handleUpdateTransactions({
 
   //fetch all existing transactions in the database
   const fetchedTxns = await Transactions.findAll({ where: { clientId } });
-  let existingTxns = fetchedTxns.map((txn) => txn.transactionId);
+  let existingTxns = new Set(fetchedTxns.map((txn) => txn.transactionId));
   const newTrasanctions = transactions.filter(
-    (txn) => !existingTxns.includes(txn.transactionId)
+    (txn) => !existingTxns.has(txn.transactionId)
   );
 
   //save unique transactions to the database
