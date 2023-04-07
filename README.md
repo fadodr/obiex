@@ -3,7 +3,6 @@
 To run the project, set up your env files for database and port configuration then make sure docker is install on your computer and run the following commands
 
 ```javascript
-npm install
 npm run infra
 ```
 
@@ -19,6 +18,7 @@ In this app, we have a message broker object which is an abstraction of a rabbit
 
 4. After filtering the new transactions , we then saved then into our database and send all the new transaction to the event bus where it will be processed.
 
+NB: The sendToCommand endpoint is use to test the functionality of the app
 
 POSTMAN DOCUMENTATION:
 
