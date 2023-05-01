@@ -13,22 +13,26 @@ export class Transactions extends Model<
 > {
   declare id: CreationOptional<string>;
   declare clientId: string;
-  declare transactionId: string;
+  declare walletAddress: string;
+  declare currencyType: string;
 }
 
 Transactions.init(
   {
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV1,
-      allowNull: false,
+      type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     clientId: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    transactionId: {
+    walletAddress: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    currencyType: {
       type: DataTypes.STRING,
       allowNull: false,
     },

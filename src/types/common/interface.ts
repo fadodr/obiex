@@ -18,7 +18,10 @@ export interface MessageBrokerInterface {
   sendToEventBus: (event: string, payload: any) => void;
 }
 
+
 export interface DBTransactions {
+  id: string;
   clientId: string;
-  transactionId : string
+  walletAddress: string;
+  currencyType: string;
 };
