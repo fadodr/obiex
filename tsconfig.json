@@ -13,7 +13,7 @@
     "sourceMap": false,
     "module": "commonjs",
     "rootDir": "./src",
-    "outDir": "../dist",
+    "outDir": "./dist",
     "moduleResolution": "node",
     "removeComments": true,
     "noEmitOnError": true,

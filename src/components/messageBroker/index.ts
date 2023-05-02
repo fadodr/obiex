@@ -13,7 +13,7 @@ export const MessageBroker: MessageBrokerInterface = {
   },
 
   sendToEventBus: (event: string, payload: any) => {
-    logger.info(`${event} sent to event bus with payload: `, payload)
+    logger.info(`${event} sent to event bus with payload: ${payload}`);
   }
 }
 

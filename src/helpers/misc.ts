@@ -22,7 +22,7 @@ export const callClientApi = async function({
 }: UpdateTxnArg): Promise<DBTransactions[]> {
     return new Promise((resolve) => {
         const resolvedTxn =
-            mockedTransactions.filter((txn) => (txn.clientId == clientId && txn.walletAddress == walletAddress, txn.currencyType == currencyType));
+            mockedTransactions.filter((txn) => (txn.clientId == clientId && txn.walletAddress == walletAddress && txn.currencyType == currencyType));
         resolve(resolvedTxn);
     });
 }

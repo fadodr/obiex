@@ -21,8 +21,10 @@ export async function handleUpdateTransactions({
   });
 
   //fetch all existing transactions in the database
-  const fetchedTxns = await Transactions.findAll({ where: { clientId, walletAddress, currencyType } });
-  let existingTxns = new Set(fetchedTxns.map((txn) => txn.id));
+  const fetchedTxns = await Transactions.findAll({
+    where: { clientId, walletAddress, currencyType },
+  });
+  let existingTxns = new Set(fetchedTxns.map((txn) => txn.id.toString()));
   const newTrasanctions = transactions.filter(
     (txn) => !existingTxns.has(txn.id)
   );
@@ -31,5 +33,5 @@ export async function handleUpdateTransactions({
   await Transactions.bulkCreate(newTrasanctions);
 
   //Push new transactions to the event bus for proecessing
-  MessageBroker.sendToEventBus(CommandTypes.NEW_TRANSACTION, newTrasanctions);
+  MessageBroker.sendToEventBus(CommandTypes.NEW_TRANSACTION, JSON.stringify(newTrasanctions));
 }
